@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            xmlns:views="clr-namespace:FoodFight.Views"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            BarBackgroundColor="#FCBF49"
+            BarTextColor="#333942"
+            android:TabbedPage.BarItemColor="#333942"
+            android:TabbedPage.BarSelectedItemColor="White"
+            BackgroundColor="#00509D"
+            x:Class="FoodFight.Root">
+    
+  <!--Pages can be added as references or inline-->
+    <views:ContactView IconImageSource="ic_action_contact.png" Title="Contacts"/>
+
+    <views:FavoriteView IconImageSource="ic_action_favorite.png" Title="Favorite"/>
+
+    <views:HomeView IconImageSource="ic_action_home.png" Title="Home"/>
+
+    <views:StartView IconImageSource="ic_action_location_on.png" Title="Start"/>
+
+    <views:ProfileView IconImageSource="ic_action_person.png" Title="Profile"/>
+
+</TabbedPage>
