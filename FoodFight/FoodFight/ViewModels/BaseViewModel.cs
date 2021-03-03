@@ -6,5 +6,6 @@ namespace FoodFight.ViewModels
 {
     class BaseViewModel
     {
+
     }
 }
