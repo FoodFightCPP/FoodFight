@@ -1,5 +1,5 @@
 # Welcome to FoodFight!
-[![Build](https://github.com/FoodFightCPP/FoodFight/actions/workflows/dotnet.yml/badge.svg)](https://github.com/FoodFightCPP/FoodFight/actions/workflows/dotnet.yml) | [![Code Size](https://img.shields.io/github/languages/code-size/FoodFightCPP/FoodFight)] | 
+[![Build](https://github.com/FoodFightCPP/FoodFight/actions/workflows/dotnet.yml/badge.svg)](https://github.com/FoodFightCPP/FoodFight/actions/workflows/dotnet.yml) | [Code Size](https://img.shields.io/github/languages/code-size/FoodFightCPP/FoodFight) | 
 
 ## About FoodFight
 So here at FoodFight, we are looking to create a mobile application that aims to solve disputes between partners and friends over where to go eat. Have you ever tried to go out to eat and asked, "Where do you want to go?", and the other person responds with, "I don't care'"? Then you suggest somewhere to go and they shoot it down faster than a falling meteor? 
