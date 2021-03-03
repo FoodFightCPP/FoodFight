@@ -87,9 +87,9 @@ namespace FoodFight.ViewModels.Forms
         /// Invoked when the Log In button is clicked.
         /// </summary>
         /// <param name="obj">The Object</param>
-        private void LoginClicked(object obj)
+        private async void LoginClicked(object obj)
         {
-            // Do something
+            await Application.Current.MainPage.Navigation.PushAsync(new Root());
         }
 
         /// <summary>
