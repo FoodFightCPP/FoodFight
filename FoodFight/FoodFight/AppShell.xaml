@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:FoodFight.Views"
+       xmlns:vm="clr-namespace:FoodFight.ViewModels"
+       BackgroundColor="#00509D"
+       TitleColor="White"
+       x:Class="FoodFight.AppShell">
+
+    <Shell.BindingContext>
+        <vm:BaseViewModel/>
+    </Shell.BindingContext>
+    
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#00509D</Color>
+            <Color x:Key="NavBarBackground">#FCBF49</Color>
+            <Color x:Key="Icon">#788396</Color>
+            <Color x:Key="Text">#FFFFFF</Color>
+            <Color x:Key="DarkText">#333942</Color>
+            <Color x:Key="Success">#3CA808</Color>
+            <Color x:Key="Danger">#FF0000</Color>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}"/>
+                <Setter Property="Shell.ForegroundColor" Value="{StaticResource Text}"/>
+                <Setter Property="Shell.TitleColor" Value="{StaticResource DarkText}"/>
+                <Setter Property="Shell.UnselectedColor" Value="{StaticResource NavBarBackground}"/>
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource NavBarBackground}"/>
+                <Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource DarkText}"/>
+                <Setter Property="Shell.UnselectedColor" Value="{StaticResource DarkText}"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource Text}"/>
+            </Style>
+            <Style TargetType="MenuItem" BasedOn="{StaticResource BaseStyle}"/>
+            <Style TargetType="ShellItem" BasedOn="{StaticResource BaseStyle}"/>
+            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}"/>
+
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <Shell.FlyoutHeader>
+        <Image Source="FFLogoDark.png" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="100" WidthRequest="100" Margin="20"/>
+    </Shell.FlyoutHeader>
+
+    <FlyoutItem Title="Home"
+                Shell.NavBarHasShadow="true" 
+                x:Name="FlyoutTab">
+        <Tab Title="Contacts"
+             Icon="ic_action_contact.png">
+            <ShellContent ContentTemplate="{DataTemplate views:ContactView}"/>    
+        </Tab>
+
+        <Tab Title="Favorites"
+             Icon="ic_action_favorite.png">
+            <ShellContent ContentTemplate="{DataTemplate views:FavoriteView}"/>
+        </Tab>
+
+        <Tab Title="Home"
+             x:Name="HomeTab"
+             Icon="ic_action_home.png">
+            <ShellContent ContentTemplate="{DataTemplate views:HomeView}"/>
+        </Tab>
+
+        <Tab Title="Start" 
+             Icon="ic_action_location_on.png">
+            <ShellContent ContentTemplate="{DataTemplate views:StartView}"/>
+        </Tab>
+
+        <Tab Title="Profile" 
+             Icon="ic_action_settings.png">
+            <ShellContent ContentTemplate="{DataTemplate views:ProfileView}"/>
+        </Tab>
+        
+    </FlyoutItem>
+
+    <MenuItem Text="Settings" Command="{Binding MenuItemOneCommand}"/>
+    <MenuItem Text="Logout" Command="{Binding MenuItemOneCommand}"/>
+    <MenuItem Text="Menu Item 3" Command="{Binding MenuItemOneCommand}"/>
+    <MenuItem Text="Menu Item 4" Command="{Binding MenuItemOneCommand}"/>
+
+    <Shell.FlyoutFooter>
+        <StackLayout  HorizontalOptions="Center">
+            <Label Text="Copyright © 2021 Food Fight, LLC." TextColor="Black" FontSize="16"/>
+        </StackLayout>
+    </Shell.FlyoutFooter>
+
+</Shell>

@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 
 namespace FoodFight.ViewModels
@@ -35,6 +37,18 @@ namespace FoodFight.ViewModels
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        public BaseViewModel()
+        {
+            MenuItemOneCommand = new Command(SomeCommand);
+        }
+
         #endregion
+
+        public ICommand MenuItemOneCommand { get; set; }
+
+        public void SomeCommand()
+        {
+            //Do Something
+        }
     }
 }
