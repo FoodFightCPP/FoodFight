@@ -1,10 +1,73 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FoodFight.Views.HomeView">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Hello This Is The Home Page" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" TextColor="White" />
+             x:Class="FoodFight.Views.HomeView"
+             Background="#00509D">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <Image Source="FFLogo.png" WidthRequest="100" HeightRequest="100"/>
+            <!--<Image Source="PeterProfilePic.png" HorizontalOptions="End" VerticalOptions="Start" Margin="20" WidthRequest="50" HeightRequest="50">
+                <Image.Clip>
+                    <EllipseGeometry Center="25,25" RadiusX="25" RadiusY="25"/>
+                </Image.Clip>
+            </Image>
+            <StackLayout Orientation="Vertical" Margin="-15, 20">
+                <Label Text="Peter Steele" TextColor="White" FontAttributes="Bold" FontSize="16"/>
+                <Label Text="info@pbsteele.com" TextColor="White" FontAttributes="Bold" FontSize="16"/>
+            </StackLayout>-->
         </StackLayout>
-    </ContentPage.Content>
+
+        <Line Grid.Row="1"
+            X1="0"
+            Y1="0"
+            X2="1080"
+            Y2="0"
+            Stroke="white"
+            />
+
+        <Label Text="Most Recent Contacts" TextColor="White" FontSize="20" Margin="0, 10, 0, 0" Grid.Row="1" HorizontalOptions="CenterAndExpand"/>
+        
+        <ScrollView Grid.Row="1" Margin="0, 40, 0, 0" VerticalOptions="FillAndExpand">
+            <Label TextColor="White" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae elit in ante sodales consequat nec non turpis. Nulla at turpis posuere, euismod urna vel, suscipit nisl. Suspendisse eu quam cursus lorem lacinia egestas. Aliquam ut nisi et sapien fermentum fermentum. In molestie porta mattis. Vivamus porttitor, justo sit amet commodo suscipit, quam lorem tincidunt orci, id rhoncus odio dolor non lacus. Maecenas placerat urna ut ipsum eleifend lobortis. Aenean vulputate convallis justo pharetra lobortis.
+
+Nullam lacinia porttitor ante vel fringilla. In iaculis metus ac ultricies convallis. In faucibus aliquet quam, id accumsan leo. Aenean ullamcorper efficitur eros, a condimentum ex volutpat vel. Proin tempor, orci vitae consequat fermentum, ex leo euismod diam, eu ullamcorper dolor ante at odio. Nulla consequat finibus eros at suscipit. Sed nec ultrices magna, eget rhoncus risus. Proin et libero suscipit, placerat neque eget, vulputate nibh. Donec rhoncus sit amet tellus sit amet bibendum. Vivamus nunc sem, pharetra nec felis sed, semper bibendum turpis. Fusce aliquet congue dui ut porta. Integer id enim at massa condimentum sagittis in ac odio.
+
+Nullam diam dolor, bibendum vitae diam eget, facilisis vestibulum dolor. Ut vitae neque lectus. Curabitur non mollis lacus. Quisque et vulputate nulla. Nam auctor consequat dapibus. Praesent sit amet risus sed orci imperdiet aliquet. Pellentesque et urna quis dolor ultricies dictum eget sit amet erat. In ultrices egestas metus vel iaculis. Etiam diam eros, dignissim at dictum ac, sagittis ut risus. Ut placerat nunc vitae lobortis volutpat. Praesent sit amet cursus urna. Aliquam in felis justo. Vivamus in varius nibh.
+
+Suspendisse pretium varius pharetra. Integer ligula diam, porttitor vitae urna id, rhoncus vehicula massa. Etiam accumsan, felis ac vulputate scelerisque, ex sem gravida urna, eu porttitor tellus nibh vel mauris. Morbi vitae vehicula enim. Aliquam arcu sapien, egestas pharetra consectetur id, interdum et ante. Proin vitae augue a tellus dictum elementum ac ut nisi. Etiam at porttitor nulla, egestas blandit turpis.
+
+Donec sodales, ipsum et dapibus tristique, felis massa ullamcorper leo, quis lobortis ligula ante eget enim. Aenean vehicula tortor ut pulvinar suscipit. Phasellus ac venenatis odio. Mauris at velit sapien. Nulla a suscipit magna, sed finibus elit. Aliquam pulvinar hendrerit hendrerit. Mauris eget laoreet justo. Sed consectetur porta ex, molestie euismod risus finibus eget. Donec ac nisl et purus luctus interdum id eget lacus. Vivamus accumsan convallis dui. Fusce quis ultrices arcu. Sed facilisis tellus eget sagittis lacinia."/>
+        </ScrollView>
+
+        <Line Grid.Row="2"
+            X1="0"
+            Y1="0"
+            X2="1080"
+            Y2="0"
+            Stroke="white"
+            />
+        <Label Text="History" TextColor="White" FontSize="20" Margin="0, 10, 0, 0" Grid.Row="2" HorizontalOptions="CenterAndExpand"/>
+
+        <ScrollView Grid.Row="2" Margin="0, 40, 0, 0" VerticalOptions="FillAndExpand">
+            <Label TextColor="White" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vitae elit in ante sodales consequat nec non turpis. Nulla at turpis posuere, euismod urna vel, suscipit nisl. Suspendisse eu quam cursus lorem lacinia egestas. Aliquam ut nisi et sapien fermentum fermentum. In molestie porta mattis. Vivamus porttitor, justo sit amet commodo suscipit, quam lorem tincidunt orci, id rhoncus odio dolor non lacus. Maecenas placerat urna ut ipsum eleifend lobortis. Aenean vulputate convallis justo pharetra lobortis.
+
+Nullam lacinia porttitor ante vel fringilla. In iaculis metus ac ultricies convallis. In faucibus aliquet quam, id accumsan leo. Aenean ullamcorper efficitur eros, a condimentum ex volutpat vel. Proin tempor, orci vitae consequat fermentum, ex leo euismod diam, eu ullamcorper dolor ante at odio. Nulla consequat finibus eros at suscipit. Sed nec ultrices magna, eget rhoncus risus. Proin et libero suscipit, placerat neque eget, vulputate nibh. Donec rhoncus sit amet tellus sit amet bibendum. Vivamus nunc sem, pharetra nec felis sed, semper bibendum turpis. Fusce aliquet congue dui ut porta. Integer id enim at massa condimentum sagittis in ac odio.
+
+Nullam diam dolor, bibendum vitae diam eget, facilisis vestibulum dolor. Ut vitae neque lectus. Curabitur non mollis lacus. Quisque et vulputate nulla. Nam auctor consequat dapibus. Praesent sit amet risus sed orci imperdiet aliquet. Pellentesque et urna quis dolor ultricies dictum eget sit amet erat. In ultrices egestas metus vel iaculis. Etiam diam eros, dignissim at dictum ac, sagittis ut risus. Ut placerat nunc vitae lobortis volutpat. Praesent sit amet cursus urna. Aliquam in felis justo. Vivamus in varius nibh.
+
+Suspendisse pretium varius pharetra. Integer ligula diam, porttitor vitae urna id, rhoncus vehicula massa. Etiam accumsan, felis ac vulputate scelerisque, ex sem gravida urna, eu porttitor tellus nibh vel mauris. Morbi vitae vehicula enim. Aliquam arcu sapien, egestas pharetra consectetur id, interdum et ante. Proin vitae augue a tellus dictum elementum ac ut nisi. Etiam at porttitor nulla, egestas blandit turpis.
+
+Donec sodales, ipsum et dapibus tristique, felis massa ullamcorper leo, quis lobortis ligula ante eget enim. Aenean vehicula tortor ut pulvinar suscipit. Phasellus ac venenatis odio. Mauris at velit sapien. Nulla a suscipit magna, sed finibus elit. Aliquam pulvinar hendrerit hendrerit. Mauris eget laoreet justo. Sed consectetur porta ex, molestie euismod risus finibus eget. Donec ac nisl et purus luctus interdum id eget lacus. Vivamus accumsan convallis dui. Fusce quis ultrices arcu. Sed facilisis tellus eget sagittis lacinia."/>
+        </ScrollView>
+
+    </Grid>
 </ContentPage>

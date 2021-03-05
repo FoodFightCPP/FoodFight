@@ -9,6 +9,8 @@ namespace FoodFight
     {
         public App()
         {
+            Device.SetFlags(new string[] { "Shapes_Experimental" });
+
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NDA2NTI3QDMxMzgyZTM0MmUzMEx4dUs5V2w0MHBHUzdndkZJV2RUUE9Ma01NQ2h5SVhQUEdFOHk2anRhT3c9");
             InitializeComponent();
 
