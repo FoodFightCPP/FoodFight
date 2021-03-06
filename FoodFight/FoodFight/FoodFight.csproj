@@ -24,6 +24,10 @@
     <Compile Update="root.xaml.cs">
       <DependentUpon>Root.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Controls\Footer.xaml.cs">
+      <DependentUpon>footer.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

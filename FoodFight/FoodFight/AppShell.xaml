@@ -3,6 +3,8 @@
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:views="clr-namespace:FoodFight.Views"
        xmlns:vm="clr-namespace:FoodFight.ViewModels"
+       xmlns:controls="clr-namespace:FoodFight.Controls;"
+       xmlns:foodFight="clr-namespace:FoodFight;assembly=FoodFight"
        BackgroundColor="#00509D"
        TitleColor="White"
        x:Class="FoodFight.AppShell">
@@ -78,9 +80,7 @@
     <MenuItem Text="Menu Item 4" Command="{Binding MenuItemOneCommand}"/>
 
     <Shell.FlyoutFooter>
-        <StackLayout  HorizontalOptions="Center">
-            <Label Text="Copyright © 2021 Food Fight, LLC." TextColor="Black" FontSize="16"/>
-        </StackLayout>
+        <controls:Footer/>
     </Shell.FlyoutFooter>
 
 </Shell>

@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Windows.Input;
+using FoodFight.DAL;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 
@@ -15,7 +16,7 @@ namespace FoodFight.ViewModels
     /// </summary>
     [Preserve(AllMembers = true)]
     [DataContract]
-    public class BaseViewModel : INotifyPropertyChanged
+    public class BaseViewModel : ObservableObject
     {
         #region Event handler
 
@@ -28,14 +29,14 @@ namespace FoodFight.ViewModels
 
         #region Methods
 
-        /// <summary>
-        /// The PropertyChanged event occurs when changing the value of property.
-        /// </summary>
-        /// <param name="propertyName">The PropertyName</param>
-        protected void NotifyPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        // /// <summary>
+        // /// The PropertyChanged event occurs when changing the value of property.
+        // /// </summary>
+        // /// <param name="propertyName">The PropertyName</param>
+        // protected void NotifyPropertyChanged([CallerMemberName] string propertyName = null)
+        // {
+        //     this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        // }
 
         public BaseViewModel()
         {
@@ -46,7 +47,7 @@ namespace FoodFight.ViewModels
 
         public ICommand MenuItemOneCommand { get; set; }
 
-        public void SomeCommand()
+        private static void SomeCommand()
         {
             //Do Something
         }

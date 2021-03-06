@@ -53,18 +53,18 @@ namespace FoodFight.ViewModels.Forms
         {
             get
             {
-                return this.newPassword;
+                return newPassword;
             }
 
             set
             {
-                if (this.newPassword == value)
+                if (newPassword == value)
                 {
                     return;
                 }
 
-                this.newPassword = value;
-                this.NotifyPropertyChanged();
+                newPassword = value;
+                OnPropertyCHanged(nameof(NewPassword));
             }
         }
 
@@ -86,7 +86,7 @@ namespace FoodFight.ViewModels.Forms
                 }
 
                 this.confirmPassword = value;
-                this.NotifyPropertyChanged();
+                OnPropertyCHanged(nameof(ConfirmPassword));
             }
         }
 

@@ -52,7 +52,7 @@ namespace FoodFight.ViewModels.Forms
                 }
 
                 this.name = value;
-                this.NotifyPropertyChanged();
+                OnPropertyCHanged(nameof(Name));
             }
         }
 
@@ -74,7 +74,7 @@ namespace FoodFight.ViewModels.Forms
                 }
 
                 this.password = value;
-                this.NotifyPropertyChanged();
+                OnPropertyCHanged(nameof(Password));
             }
         }
 
@@ -96,7 +96,7 @@ namespace FoodFight.ViewModels.Forms
                 }
 
                 this.confirmPassword = value;
-                this.NotifyPropertyChanged();
+                OnPropertyCHanged(nameof(ConfirmPassword));
             }
         }
 

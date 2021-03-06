@@ -51,7 +51,7 @@ namespace FoodFight.ViewModels.Forms
                 }
 
                 this.password = value;
-                this.NotifyPropertyChanged();
+                OnPropertyCHanged(nameof(Password));
             }
         }
 

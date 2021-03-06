@@ -25,18 +25,18 @@ namespace FoodFight.ViewModels.Forms
         {
             get
             {
-                return this.email;
+                return email;
             }
 
             set
             {
-                if (this.email == value)
+                if (email == value)
                 {
                     return;
                 }
 
-                this.email = value;
-                this.NotifyPropertyChanged();
+                email = value;
+                OnPropertyCHanged(nameof(Email));
             }
         }
 
@@ -47,18 +47,18 @@ namespace FoodFight.ViewModels.Forms
         {
             get
             {
-                return this.isInvalidEmail;
+                return isInvalidEmail;
             }
 
             set
             {
-                if (this.isInvalidEmail == value)
+                if (isInvalidEmail == value)
                 {
                     return;
                 }
 
-                this.isInvalidEmail = value;
-                this.NotifyPropertyChanged();
+                isInvalidEmail = value;
+                OnPropertyCHanged(nameof(IsInvalidEmail));
             }
         }
 
