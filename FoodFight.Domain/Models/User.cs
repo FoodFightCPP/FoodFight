@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using FoodFight.Domain.Models;
 
-namespace FoodFight.Models
+namespace FoodFight.Domain.Models
 {
     public class User : DomainObject
     {
@@ -27,5 +26,7 @@ namespace FoodFight.Models
         public string Twitter { get; set; }
         public string Website { get; set; }
         public string ProfilePic { get; set; }
+        public virtual ICollection<ConnectedUser> Contacts { get; set; }
+        public virtual ICollection<BlockedUser> BlockedUsers { get; set; }
     }
 }

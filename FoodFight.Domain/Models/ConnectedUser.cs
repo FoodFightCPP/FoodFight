@@ -1,15 +1,22 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using FoodFight.Models;
 
 namespace FoodFight.Domain.Models
 {
-    public class ConnectedUsers : DomainObject
+    public class ConnectedUser : DomainObject
     {
         /// <summary>
-        /// Join Table for connected users
+        /// Many to Many Table for Connected Users
         /// </summary>
-        public virtual Users Users { get; set; }
-        public virtual ICollection<Users> User { get; set; }
+
+        public int UserId { get; set; }
+        public virtual User User { get; set; }
+
+
+        public int ContactId { get; set; }
+        public virtual User Contact { get; set; }
+
+        public DateTime ConnectedDate { get; set; }
     }
 }

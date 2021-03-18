@@ -1,13 +1,17 @@
-﻿using FoodFight.Models;
+﻿
 
 namespace FoodFight.Domain.Models
 {
-    public class MatchedRestaurants : DomainObject
+    public class MatchedRestaurant : DomainObject
     {
         /// <summary>
         /// Join Table for Matched Restaurants during matching session
         /// </summary>
-        public Users Users { get; set; }
-        // This table is for generating the list of matched restaurants
+
+        public int SessionId { get; set; }
+        public virtual Session Session { get; set; }
+
+        public int RestuarantId { get; set; }
+        public virtual Restaurant Restaurant { get; set; } 
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using FoodFight.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 
@@ -87,9 +88,9 @@ namespace FoodFight.ViewModels.Forms
         /// Invoked when the Log In button is clicked.
         /// </summary>
         /// <param name="obj">The Object</param>
-        private async void LoginClicked(object obj)
+        private void LoginClicked(object obj)
         {
-            await Application.Current.MainPage.Navigation.PushAsync(new Root());
+            Application.Current.MainPage = new AppShell();
         }
 
         /// <summary>

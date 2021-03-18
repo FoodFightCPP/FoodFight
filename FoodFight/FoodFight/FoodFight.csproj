@@ -1,9 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
     <UserSecretsId>31b30405-c618-4fb5-a6b6-117796830334</UserSecretsId>
+    <PackageVersion></PackageVersion>
+    <Title>FoodFight</Title>
+    <Authors>FoodFight</Authors>
+    <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -12,18 +15,20 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Syncfusion.Licensing" Version="18.4.0.46" />
-    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="18.4.0.46" />
-    <PackageReference Include="Syncfusion.Xamarin.Core" Version="18.4.0.46" />
-    <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="18.4.0.46" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="5.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.4" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.0-preview.1.21102.12" />
+    <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.22" />
+    <PackageReference Include="Syncfusion.Licensing" Version="18.4.0.47" />
+    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="18.4.0.47" />
+    <PackageReference Include="Syncfusion.Xamarin.Core" Version="18.4.0.47" />
+    <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="18.4.0.47" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="root.xaml.cs">
-      <DependentUpon>Root.xaml</DependentUpon>
-    </Compile>
     <Compile Update="Controls\Footer.xaml.cs">
       <DependentUpon>footer.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -32,9 +37,6 @@
 
   <ItemGroup>
     <EmbeddedResource Update="AppShell.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Root.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Themes\LightTheme.xaml">
@@ -76,10 +78,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DAL\EntityFramework\" />
-    <Folder Include="DAL\Repos\" />
     <Folder Include="Resources\Controls\" />
     <Folder Include="Resources\Commands\" />
     <Folder Include="Services\GPService\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\FoodFight.DAL\FoodFight.DAL.csproj" />
+    <ProjectReference Include="..\..\FoodFight.Domain\FoodFight.Domain.csproj" />
   </ItemGroup>
 </Project>

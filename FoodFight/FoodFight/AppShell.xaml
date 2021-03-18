@@ -23,12 +23,12 @@
             <Color x:Key="Success">#3CA808</Color>
             <Color x:Key="Danger">#FF0000</Color>
             <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}"/>
+                <!--<Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}"/>
                 <Setter Property="Shell.ForegroundColor" Value="{StaticResource Text}"/>
                 <Setter Property="Shell.TitleColor" Value="{StaticResource DarkText}"/>
-                <Setter Property="Shell.UnselectedColor" Value="{StaticResource NavBarBackground}"/>
-                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource NavBarBackground}"/>
-                <Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource DarkText}"/>
+                <Setter Property="Shell.UnselectedColor" Value="{StaticResource NavBarBackground}"/>-->
+                <Setter x:Name="Background" Property="Shell.TabBarBackgroundColor" Value="{StaticResource NavBarBackground}"/>
+                <!--<Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource Danger}"/>-->
                 <Setter Property="Shell.UnselectedColor" Value="{StaticResource DarkText}"/>
                 <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource Text}"/>
             </Style>
@@ -39,45 +39,51 @@
         </ResourceDictionary>
     </Shell.Resources>
 
-    <Shell.FlyoutHeader>
+    <!--<Shell.FlyoutHeader>
         <Image Source="FFLogoDark.png" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="100" WidthRequest="100" Margin="20"/>
-    </Shell.FlyoutHeader>
+    </Shell.FlyoutHeader>-->
 
-    <FlyoutItem Title="Home"
+    <TabBar Title="Home"
                 Shell.NavBarHasShadow="true" 
                 x:Name="FlyoutTab">
+
+        <Tab Title="Profile" 
+             Icon="ic_action_person.png">
+            <ShellContent Style="{StaticResource BaseStyle}" ContentTemplate="{DataTemplate views:ProfileView}"/>
+        </Tab>
+        
         <Tab Title="Contacts"
              Icon="ic_action_contact.png">
-            <ShellContent ContentTemplate="{DataTemplate views:ContactView}"/>    
-        </Tab>
-
-        <Tab Title="Favorites"
-             Icon="ic_action_favorite.png">
-            <ShellContent ContentTemplate="{DataTemplate views:FavoriteView}"/>
+            <ShellContent Style="{StaticResource BaseStyle}" ContentTemplate="{DataTemplate views:ContactView}"/>    
         </Tab>
 
         <Tab Title="Home"
              x:Name="HomeTab"
              Icon="ic_action_home.png">
-            <ShellContent ContentTemplate="{DataTemplate views:HomeView}"/>
+            <ShellContent Style="{StaticResource BaseStyle}" ContentTemplate="{DataTemplate views:HomeView}"/>
         </Tab>
 
         <Tab Title="Start" 
              Icon="ic_action_location_on.png">
-            <ShellContent ContentTemplate="{DataTemplate views:StartView}"/>
+            <ShellContent Style="{StaticResource BaseStyle}" ContentTemplate="{DataTemplate views:StartView}"/>
         </Tab>
 
-        <Tab Title="Profile" 
+        <Tab Title="Favorites"
+             Icon="ic_action_favorite.png">
+            <ShellContent Style="{StaticResource BaseStyle}" ContentTemplate="{DataTemplate views:FavoriteView}"/>
+        </Tab>
+
+        <Tab Title="Settings" 
              Icon="ic_action_settings.png">
-            <ShellContent ContentTemplate="{DataTemplate views:ProfileView}"/>
+            <ShellContent Style="{StaticResource BaseStyle}" ContentTemplate="{DataTemplate views:ProfileView}"/>
         </Tab>
-        
-    </FlyoutItem>
 
-    <MenuItem Text="Settings" Command="{Binding MenuItemOneCommand}"/>
+    </TabBar>
+
+    <!--<MenuItem Text="Settings" Command="{Binding MenuItemOneCommand}"/>
     <MenuItem Text="Logout" Command="{Binding MenuItemOneCommand}"/>
     <MenuItem Text="Menu Item 3" Command="{Binding MenuItemOneCommand}"/>
-    <MenuItem Text="Menu Item 4" Command="{Binding MenuItemOneCommand}"/>
+    <MenuItem Text="Menu Item 4" Command="{Binding MenuItemOneCommand}"/>-->
 
     <Shell.FlyoutFooter>
         <controls:Footer/>
