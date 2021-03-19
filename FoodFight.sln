@@ -4,6 +4,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodFight.Android", "FoodFight\FoodFight.Android\FoodFight.Android.csproj", "{611CDB74-7531-4A98-A501-15D4E5142067}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0F5FD720-EA21-4342-A24F-48DC35F25A9C} = {0F5FD720-EA21-4342-A24F-48DC35F25A9C}
+		{86DF8C32-21B3-407A-A328-E4A3AE02439B} = {86DF8C32-21B3-407A-A328-E4A3AE02439B}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodFight", "FoodFight\FoodFight\FoodFight.csproj", "{FCCF620C-1D11-4362-BFD6-E15A6FFA9B49}"
 EndProject
@@ -11,6 +15,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		README.MD = README.MD
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodFight.Domain", "FoodFight.Domain\FoodFight.Domain.csproj", "{0F5FD720-EA21-4342-A24F-48DC35F25A9C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FoodFight.DAL", "FoodFight.DAL\FoodFight.DAL.csproj", "{86DF8C32-21B3-407A-A328-E4A3AE02439B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,6 +38,14 @@ Global
 		{FCCF620C-1D11-4362-BFD6-E15A6FFA9B49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCCF620C-1D11-4362-BFD6-E15A6FFA9B49}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FCCF620C-1D11-4362-BFD6-E15A6FFA9B49}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{0F5FD720-EA21-4342-A24F-48DC35F25A9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F5FD720-EA21-4342-A24F-48DC35F25A9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F5FD720-EA21-4342-A24F-48DC35F25A9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F5FD720-EA21-4342-A24F-48DC35F25A9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86DF8C32-21B3-407A-A328-E4A3AE02439B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86DF8C32-21B3-407A-A328-E4A3AE02439B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86DF8C32-21B3-407A-A328-E4A3AE02439B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86DF8C32-21B3-407A-A328-E4A3AE02439B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

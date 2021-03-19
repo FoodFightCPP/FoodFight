@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace FoodFight.Models
+namespace FoodFight.DAL.Services
 {
-    class Session
+    class GenericDataService
     {
     }
 }

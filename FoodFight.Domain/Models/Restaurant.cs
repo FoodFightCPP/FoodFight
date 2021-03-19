@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace FoodFight.Models
+namespace FoodFight.Domain.Models
 {
-    public class Restaurant
+    public class Restaurant : DomainObject
     {
-        public int RestId { get; set; }
+        /// <summary>
+        /// Model for returned restaurant from Google Places API
+        /// </summary>
         public string FormattedAddress { get; set; }
         public double Latitude { get; set; }
         public double Longitude { get; set; }
