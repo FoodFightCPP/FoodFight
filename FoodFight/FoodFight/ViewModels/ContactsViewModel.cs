@@ -16,12 +16,7 @@ namespace FoodFight.ViewModels
         public ContactsViewModel(IDataService<User> userRepo)
         {
             _userRepo = userRepo;
-            TestRepo();
-        }
-
-        public void TestRepo()
-        {
-            _userRepo.GetAll();
+            
         }
     }
 }
