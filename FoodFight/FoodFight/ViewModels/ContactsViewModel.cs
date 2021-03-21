@@ -1,4 +1,6 @@
-﻿using Prism.Commands;
+﻿using FoodFight.Domain.Models;
+using FoodFight.Domain.Services;
+using Prism.Commands;
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
@@ -8,9 +10,18 @@ namespace FoodFight.ViewModels
 {
     public class ContactsViewModel : BindableBase
     {
-        public ContactsViewModel()
-        {
 
+        IDataService<User> _userRepo { get; set; }
+
+        public ContactsViewModel(IDataService<User> userRepo)
+        {
+            _userRepo = userRepo;
+            TestRepo();
+        }
+
+        public void TestRepo()
+        {
+            _userRepo.GetAll();
         }
     }
 }
