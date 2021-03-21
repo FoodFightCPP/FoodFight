@@ -1,3 +1,6 @@
+using FoodFight.DAL.Services;
+using FoodFight.Domain.Models;
+using FoodFight.Domain.Services;
 using FoodFight.ViewModels;
 using FoodFight.Views;
 using Prism;
@@ -25,6 +28,10 @@ namespace FoodFight
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
+
+            containerRegistry.RegisterSingleton<IDataService<User>, GenericDataService<User>>();
+
+
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
