@@ -1,3 +1,4 @@
+using FoodFight.DAL;
 using FoodFight.DAL.Services;
 using FoodFight.Domain.Models;
 using FoodFight.Domain.Services;
@@ -30,6 +31,7 @@ namespace FoodFight
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
 
             containerRegistry.RegisterSingleton<IDataService<User>, GenericDataService<User>>();
+            containerRegistry.RegisterSingleton<DbContextFactory>();
 
 
 

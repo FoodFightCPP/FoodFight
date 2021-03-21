@@ -1,4 +1,5 @@
-﻿using FoodFight.Domain.Services;
+﻿using FoodFight.Domain.Models;
+using FoodFight.Domain.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FoodFight.DAL.Services
 {
-    public class GenericDataService<T> : IDataService<T>
+    public class GenericDataService<T> : IDataService<T> where T : DomainObject
     {
         public Task<T> Create(T entity)
         {
