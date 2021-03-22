@@ -31,7 +31,7 @@ namespace FoodFight
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
 
             containerRegistry.RegisterSingleton<IDataService<User>, GenericDataService<User>>();
-            containerRegistry.RegisterSingleton<DbContextFactory>();
+            containerRegistry.RegisterScoped<DbContextFactory>();
 
 
 

@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace FoodFight.Domain.Models
@@ -10,10 +13,27 @@ namespace FoodFight.Domain.Models
         /// Join Table for Accepted Restaurants
         /// </summary>
 
-        public int UserId { get; set; }
-        public virtual User User { get; set; }
+        public AcceptedRestaurant()
+        {
+            MatchedRestaurants = new HashSet<MatchedRestaurant>();
+        }
 
-        public int RestaurantId { get; set; }
-        public virtual Restaurant Restaurant { get; set; }
+        [Key]
+        [Column("AcceptedRestaurantID")]
+        public Guid AcceptedRestaurantId { get; set; }
+        [Column("SwipeListID")]
+        public Guid SwipeListId { get; set; }
+        [Column(TypeName = "datetime")]
+        public DateTime DateTime { get; set; }
+        [Required]
+        [Column("UserID")]
+        [StringLength(50)]
+        public string UserId { get; set; }
+
+        [ForeignKey(nameof(SwipeListId))]
+        [InverseProperty("AcceptedRestaurants")]
+        public virtual SwipeList SwipeList { get; set; }
+        [InverseProperty(nameof(MatchedRestaurant.AcceptedRestaurant))]
+        public virtual ICollection<MatchedRestaurant> MatchedRestaurants { get; set; }
     }
 }

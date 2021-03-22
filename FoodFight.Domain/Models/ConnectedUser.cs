@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace FoodFight.Domain.Models
@@ -10,13 +12,26 @@ namespace FoodFight.Domain.Models
         /// Many to Many Table for Connected Users
         /// </summary>
 
-        public int UserId { get; set; }
-        public virtual User User { get; set; }
+        public ConnectedUser()
+        {
+            MatchSessions = new HashSet<MatchSession>();
+        }
 
+        [Key]
+        [Column("ConnectedUserID")]
+        public Guid ConnectedUserId { get; set; }
+        [Column("BaseUserID")]
+        public Guid BaseUserId { get; set; }
+        [Column("FriendUserID")]
+        public Guid FriendUserId { get; set; }
 
-        public int ContactId { get; set; }
-        public virtual User Contact { get; set; }
-
-        public DateTime ConnectedDate { get; set; }
+        [ForeignKey(nameof(BaseUserId))]
+        [InverseProperty(nameof(User.ConnectedUserBaseUsers))]
+        public virtual User BaseUser { get; set; }
+        [ForeignKey(nameof(FriendUserId))]
+        [InverseProperty(nameof(User.ConnectedUserFriendUsers))]
+        public virtual User FriendUser { get; set; }
+        [InverseProperty(nameof(MatchSession.ConnectedUser))]
+        public virtual ICollection<MatchSession> MatchSessions { get; set; }
     }
 }

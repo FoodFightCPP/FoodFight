@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace FoodFight.Domain.Models
@@ -9,14 +11,47 @@ namespace FoodFight.Domain.Models
         /// <summary>
         /// Model for returned restaurant from Google Places API
         /// </summary>
-        public string FormattedAddress { get; set; }
-        public double Latitude { get; set; }
-        public double Longitude { get; set; }
+        public Restaurant()
+        {
+            BlockedRestaurants = new HashSet<BlockedRestaurant>();
+            FavoriteRestaurants = new HashSet<FavoriteRestaurant>();
+            SwipeLists = new HashSet<SwipeList>();
+        }
+
+        [Key]
+        [Column("RestaurantID")]
+        [StringLength(255)]
+        public string RestaurantId { get; set; }
+        [Required]
+        [StringLength(255)]
         public string Name { get; set; }
+        [StringLength(255)]
+        public string Street { get; set; }
+        [StringLength(20)]
+        public string Phone { get; set; }
+        [StringLength(255)]
+        public string City { get; set; }
+        [StringLength(255)]
+        public string State { get; set; }
+        [StringLength(50)]
+        public string Lat { get; set; }
+        [StringLength(50)]
+        public string Lng { get; set; }
+        [StringLength(50)]
         public string OpenNow { get; set; }
-        public string Photo { get; set; }
-        public double Rating { get; set; }
-        public long Phone { get; set; }
+        [StringLength(255)]
         public string Website { get; set; }
+        public double? Rating { get; set; }
+        [StringLength(10)]
+        public string ZipCode { get; set; }
+        [StringLength(100)]
+        public string Photo { get; set; }
+
+        [InverseProperty(nameof(BlockedRestaurant.Restaurant))]
+        public virtual ICollection<BlockedRestaurant> BlockedRestaurants { get; set; }
+        [InverseProperty(nameof(FavoriteRestaurant.Restaurant))]
+        public virtual ICollection<FavoriteRestaurant> FavoriteRestaurants { get; set; }
+        [InverseProperty(nameof(SwipeList.Restaurant))]
+        public virtual ICollection<SwipeList> SwipeLists { get; set; }
     }
 }
