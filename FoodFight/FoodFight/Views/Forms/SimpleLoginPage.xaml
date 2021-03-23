@@ -21,6 +21,15 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </ContentPage.Resources>
+    
+    <ContentPage.Background>
+        <LinearGradientBrush EndPoint="0,1">
+            <GradientStop Color="#00509D"
+                          Offset="0.0" />
+            <GradientStop Color="Black"
+                          Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
 
     <ContentPage.Content>
         <ScrollView HorizontalOptions="Center">
@@ -55,25 +64,30 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
-                    <!--  Label to display the title of this page  -->
-                    <Label
+                    <StackLayout Orientation="Vertical">
+                        <Image Source="FFLogo.png" />
+
+                        <!--  Label to display the title of this page  -->
+                        <Label
                         FontFamily="{StaticResource Montserrat-SemiBold}"
                         FontSize="20"
                         HorizontalTextAlignment="Center"
                         Style="{StaticResource LabelStyle}"
                         Text="Log In"
-                        TextColor="{DynamicResource Gray-900}" />
+                        TextColor="White"/>
 
-                    <!--  Label to display the description of this page  -->
-                    <Label
+                        <!--  Label to display the description of this page  -->
+                        <Label
                         Grid.Row="1"
                         Margin="0,8"
                         FontFamily="{StaticResource Montserrat-Medium}"
                         HorizontalTextAlignment="Center"
                         Style="{StaticResource LabelStyle}"
-                        Text="Let's get to work"
-                        TextColor="{DynamicResource Gray-800}" />
+                        Text="Don't Fight over Food, use Food Fight!"
+                        TextColor="White" />
 
+                    </StackLayout>
+                    
                     <!--  Entry to get email ID from user  -->
                     <local:SimpleEmailEntry Grid.Row="2" Padding="0,24" />
 
@@ -102,7 +116,7 @@
                         FontSize="12"
                         HorizontalOptions="End"
                         Text="FORGOT PASSWORD?"
-                        TextColor="{DynamicResource Gray-800}">
+                        TextColor="White">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}" CommandParameter="{x:Reference ForgotPasswordLabel}" />
                         </Label.GestureRecognizers>
@@ -123,7 +137,7 @@
                         HorizontalTextAlignment="Center"
                         Style="{StaticResource LabelStyle}"
                         Text="Or create an account using social media"
-                        TextColor="{DynamicResource Gray-800}" />
+                        TextColor="White" />
 
                     <!--  Login through facebook account  -->
                     <buttons:SfButton
@@ -174,7 +188,7 @@
                         HorizontalTextAlignment="Center"
                         Style="{StaticResource LabelStyle}"
                         Text="Don't have an account?"
-                        TextColor="{DynamicResource Gray-900}"
+                        TextColor="White"
                         VerticalTextAlignment="Center" />
 
                     <!--  Sign-up button  -->
