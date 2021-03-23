@@ -5,6 +5,7 @@ using FoodFight.Domain.Services;
 using FoodFight.ViewModels;
 using FoodFight.Views;
 using Prism;
+using Prism.DryIoc;
 using Prism.Ioc;
 using Xamarin.Essentials.Implementation;
 using Xamarin.Essentials.Interfaces;
@@ -30,10 +31,10 @@ namespace FoodFight
         {
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
 
+
+            
             containerRegistry.RegisterSingleton<IDataService<User>, GenericDataService<User>>();
             containerRegistry.RegisterScoped<DbContextFactory>();
-
-
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
@@ -43,6 +44,10 @@ namespace FoodFight
             containerRegistry.RegisterForNavigation<Favorites, FavoritesViewModel>();
             containerRegistry.RegisterForNavigation<Home, HomeViewModel>();
             containerRegistry.RegisterForNavigation<Start, StartViewModel>();
+
+            PrismContainerExtension.Current.RegisterServices(s => {
+
+            });
         }
     }
 }
