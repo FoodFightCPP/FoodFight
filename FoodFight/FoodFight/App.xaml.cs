@@ -40,7 +40,6 @@ namespace FoodFight
 
             containerRegistry.RegisterSingleton<IDataService<User>, GenericDataService<User>>();
             containerRegistry.RegisterSingleton<IDataService<Restaurant>, GenericDataService<Restaurant>>();
-            containerRegistry.RegisterScoped<DbContextFactory>();
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();

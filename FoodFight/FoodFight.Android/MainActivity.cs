@@ -6,7 +6,7 @@ using Prism.Ioc;
 
 namespace FoodFight.Droid
 {
-    [Activity(Theme = "@style/MainTheme",
+    [Activity(Theme = "@style/MainTheme", 
               ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
