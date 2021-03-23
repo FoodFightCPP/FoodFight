@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace FoodFight.Domain.Models
 {
@@ -12,21 +13,17 @@ namespace FoodFight.Domain.Models
         /// Join Table for favorite restaurants
         /// </summary>
 
-        [Key]
-        [Column("FavoriteRestaurantID")]
+        [JsonProperty("favoriteRestaurantId")]
         public Guid FavoriteRestaurantId { get; set; }
-        [Required]
-        [Column("RestaurantID")]
-        [StringLength(255)]
+        [JsonProperty("restaurantId")]
         public string RestaurantId { get; set; }
-        [Column("UserID")]
+        [JsonProperty("userId")]
         public Guid UserId { get; set; }
 
-        [ForeignKey(nameof(RestaurantId))]
-        [InverseProperty("FavoriteRestaurants")]
+        [JsonProperty("restaurant")]
         public virtual Restaurant Restaurant { get; set; }
-        [ForeignKey(nameof(UserId))]
-        [InverseProperty("FavoriteRestaurants")]
+
+        [JsonProperty("user")]
         public virtual User User { get; set; }
     }
 }

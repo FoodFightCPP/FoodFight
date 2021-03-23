@@ -32,11 +32,8 @@ namespace FoodFight.ViewModels
         }
 
         public async void TestRepo()
-        {
-            HttpClient httpClient = new HttpClient();
-
-            var result = await httpClient.GetStringAsync("https://foodfightwebapi.azurewebsites.net/api/Users");
-            AppUsers = new ObservableCollection<User>(JsonConvert.DeserializeObject<User[]>(result));
+        { 
+            AppUsers = new ObservableCollection<User>( await _userRepo.GetAll("Users"));
         }
     }
 }

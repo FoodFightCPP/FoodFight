@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace FoodFight.Domain.Models
 {
@@ -11,47 +12,50 @@ namespace FoodFight.Domain.Models
         /// <summary>
         /// Model for returned restaurant from Google Places API
         /// </summary>
-        public Restaurant()
-        {
-            BlockedRestaurants = new HashSet<BlockedRestaurant>();
-            FavoriteRestaurants = new HashSet<FavoriteRestaurant>();
-            SwipeLists = new HashSet<SwipeList>();
-        }
 
-        [Key]
-        [Column("RestaurantID")]
-        [StringLength(255)]
-        public string RestaurantId { get; set; }
-        [Required]
-        [StringLength(255)]
+        [JsonProperty("name")]
         public string Name { get; set; }
-        [StringLength(255)]
-        public string Street { get; set; }
-        [StringLength(20)]
-        public string Phone { get; set; }
-        [StringLength(255)]
-        public string City { get; set; }
-        [StringLength(255)]
-        public string State { get; set; }
-        [StringLength(50)]
-        public string Lat { get; set; }
-        [StringLength(50)]
-        public string Lng { get; set; }
-        [StringLength(50)]
-        public string OpenNow { get; set; }
-        [StringLength(255)]
-        public string Website { get; set; }
-        public double? Rating { get; set; }
-        [StringLength(10)]
-        public string ZipCode { get; set; }
-        [StringLength(100)]
-        public string Photo { get; set; }
 
-        [InverseProperty(nameof(BlockedRestaurant.Restaurant))]
-        public virtual ICollection<BlockedRestaurant> BlockedRestaurants { get; set; }
-        [InverseProperty(nameof(FavoriteRestaurant.Restaurant))]
-        public virtual ICollection<FavoriteRestaurant> FavoriteRestaurants { get; set; }
-        [InverseProperty(nameof(SwipeList.Restaurant))]
-        public virtual ICollection<SwipeList> SwipeLists { get; set; }
+        [JsonProperty("street")]
+        public string Street { get; set; }
+
+        [JsonProperty("phone")]
+        public string Phone { get; set; }
+
+        [JsonProperty("city")]
+        public string City { get; set; }
+
+        [JsonProperty("state")]
+        public string State { get; set; }
+
+        [JsonProperty("lat")]
+        public string Lat { get; set; }
+
+        [JsonProperty("lng")]
+        public string Lng { get; set; }
+
+        [JsonProperty("openNow")]
+        public string OpenNow { get; set; }
+
+        [JsonProperty("website")]
+        public string Website { get; set; }
+
+        [JsonProperty("rating")]
+        public long Rating { get; set; }
+
+        [JsonProperty("zipCode")]
+        public string ZipCode { get; set; }
+
+        [JsonProperty("photo")]
+        public string Photo { get; set; }
+        
+        [JsonProperty("blockedRestaurants")]
+        public object[] BlockedRestaurants { get; set; }
+
+        [JsonProperty("favoriteRestaurants")]
+        public object[] FavoriteRestaurants { get; set; }
+
+        [JsonProperty("swipeLists")]
+        public object[] SwipeLists { get; set; }
     }
 }

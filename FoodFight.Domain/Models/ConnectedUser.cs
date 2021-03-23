@@ -25,13 +25,11 @@ namespace FoodFight.Domain.Models
         [Column("FriendUserID")]
         public Guid FriendUserId { get; set; }
 
-        [ForeignKey(nameof(BaseUserId))]
-        [InverseProperty(nameof(User.ConnectedUserBaseUsers))]
+
         public virtual User BaseUser { get; set; }
-        [ForeignKey(nameof(FriendUserId))]
-        [InverseProperty(nameof(User.ConnectedUserFriendUsers))]
+
         public virtual User FriendUser { get; set; }
-        [InverseProperty(nameof(MatchSession.ConnectedUser))]
+
         public virtual ICollection<MatchSession> MatchSessions { get; set; }
     }
 }

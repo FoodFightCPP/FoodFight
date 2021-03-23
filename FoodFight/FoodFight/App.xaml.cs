@@ -3,7 +3,9 @@ using FoodFight.DAL.Services;
 using FoodFight.Domain.Models;
 using FoodFight.Domain.Services;
 using FoodFight.ViewModels;
+using FoodFight.ViewModels.Forms;
 using FoodFight.Views;
+using FoodFight.Views.Forms;
 using Prism;
 using Prism.DryIoc;
 using Prism.Ioc;
@@ -24,7 +26,11 @@ namespace FoodFight
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("MainPage?selectedTab=Home");
+            Device.SetFlags(new string[] { "Shapes_Experimental" });
+
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NDA2NTI3QDMxMzgyZTM0MmUzMEx4dUs5V2w0MHBHUzdndkZJV2RUUE9Ma01NQ2h5SVhQUEdFOHk2anRhT3c9");
+
+            await NavigationService.NavigateAsync("SimpleLoginPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -32,8 +38,8 @@ namespace FoodFight
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
 
 
-            
             containerRegistry.RegisterSingleton<IDataService<User>, GenericDataService<User>>();
+            containerRegistry.RegisterSingleton<IDataService<Restaurant>, GenericDataService<Restaurant>>();
             containerRegistry.RegisterScoped<DbContextFactory>();
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
@@ -45,9 +51,10 @@ namespace FoodFight
             containerRegistry.RegisterForNavigation<Home, HomeViewModel>();
             containerRegistry.RegisterForNavigation<Start, StartViewModel>();
 
-            PrismContainerExtension.Current.RegisterServices(s => {
-
-            });
+            containerRegistry.RegisterForNavigation<SimpleLoginPage, LoginPageViewModel>();
+            containerRegistry.RegisterForNavigation<SimpleResetPasswordPage, ResetPasswordViewModel>();
+            containerRegistry.RegisterForNavigation<SimpleSignUpPage, SignUpPageViewModel>();
+            containerRegistry.RegisterForNavigation<SimpleForgotPasswordPage, ForgotPasswordViewModel>();
         }
     }
 }
