@@ -9,6 +9,8 @@ namespace FoodFight.Domain.Models
 {
     public class User : DomainObject
     {
+        [JsonProperty("userId")]
+        public Guid UserId { get; set; }
 
         [JsonProperty("username")]
         public string Username { get; set; }
@@ -65,27 +67,6 @@ namespace FoodFight.Domain.Models
         public string ZipCode { get; set; }
 
         [JsonProperty("salt")]
-        public object Salt { get; set; }
-
-        [JsonProperty("blockedRestaurants")]
-        public object[] BlockedRestaurants { get; set; }
-
-        [JsonProperty("blockedUserBaseUsers")]
-        public object[] BlockedUserBaseUsers { get; set; }
-
-        [JsonProperty("blockedUserBlockedUserNavigations")]
-        public object[] BlockedUserBlockedUserNavigations { get; set; }
-
-        [JsonProperty("connectedUserBaseUsers")]
-        public object[] ConnectedUserBaseUsers { get; set; }
-
-        [JsonProperty("connectedUserFriendUsers")]
-        public object[] ConnectedUserFriendUsers { get; set; }
-
-        [JsonProperty("favoriteRestaurants")]
-        public object[] FavoriteRestaurants { get; set; }
-
-        [JsonProperty("userSettings")]
-        public object[] UserSettings { get; set; }
+        public string Salt { get; set; }
     }
 }

@@ -4,35 +4,28 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace FoodFight.Domain.Models
 {
     public class MatchSession : DomainObject 
     {
-        /// <summary>
-        /// Join Table for Session Data
-        /// </summary>
-        public MatchSession()
-        {
-            SwipeLists = new HashSet<SwipeList>();
-        }
-
-        [Key]
-        [Column("MatchSessionID")]
+        [JsonProperty("matchSessionId")]
         public Guid MatchSessionId { get; set; }
-        [Column("ConnectedUserID")]
+
+        [JsonProperty("connectedUserId")]
         public Guid ConnectedUserId { get; set; }
-        [Column(TypeName = "datetime")]
+
+        [JsonProperty("dateTime")]
         public DateTime DateTime { get; set; }
-        [StringLength(50)]
+
+        [JsonProperty("lat")]
         public string Lat { get; set; }
-        [StringLength(50)]
+
+        [JsonProperty("lng")]
         public string Lng { get; set; }
 
-        [ForeignKey(nameof(ConnectedUserId))]
-        [InverseProperty("MatchSessions")]
-        public virtual ConnectedUser ConnectedUser { get; set; }
-        [InverseProperty(nameof(SwipeList.MatchSession))]
-        public virtual ICollection<SwipeList> SwipeLists { get; set; }
+        [JsonProperty("connectedUser")]
+        public ConnectedUser ConnectedUser { get; set; }
     }
 }

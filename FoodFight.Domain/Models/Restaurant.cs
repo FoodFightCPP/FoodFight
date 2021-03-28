@@ -9,9 +9,8 @@ namespace FoodFight.Domain.Models
 {
     public class Restaurant : DomainObject
     {
-        /// <summary>
-        /// Model for returned restaurant from Google Places API
-        /// </summary>
+        [JsonProperty("restaurantId")]
+        public int RestaurantId { get; set; }
 
         [JsonProperty("name")]
         public string Name { get; set; }
@@ -41,21 +40,12 @@ namespace FoodFight.Domain.Models
         public string Website { get; set; }
 
         [JsonProperty("rating")]
-        public long Rating { get; set; }
+        public double Rating { get; set; }
 
         [JsonProperty("zipCode")]
         public string ZipCode { get; set; }
 
         [JsonProperty("photo")]
         public string Photo { get; set; }
-        
-        [JsonProperty("blockedRestaurants")]
-        public object[] BlockedRestaurants { get; set; }
-
-        [JsonProperty("favoriteRestaurants")]
-        public object[] FavoriteRestaurants { get; set; }
-
-        [JsonProperty("swipeLists")]
-        public object[] SwipeLists { get; set; }
     }
 }

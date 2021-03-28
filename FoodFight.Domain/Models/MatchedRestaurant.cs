@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -8,20 +9,16 @@ namespace FoodFight.Domain.Models
 {
     public class MatchedRestaurant : DomainObject
     {
-        /// <summary>
-        /// Join Table for Matched Restaurants during matching session
-        /// </summary>
-
-        [Key]
-        [Column("MatchRestaurantID")]
+        [JsonProperty("matchRestaurantId")]
         public Guid MatchRestaurantId { get; set; }
-        [Column("DateTIme", TypeName = "datetime")]
+
+        [JsonProperty("dateTime")]
         public DateTime DateTime { get; set; }
-        [Column("AcceptedRestaurantID")]
+
+        [JsonProperty("acceptedRestaurantId")]
         public Guid AcceptedRestaurantId { get; set; }
 
-        [ForeignKey(nameof(AcceptedRestaurantId))]
-        [InverseProperty("MatchedRestaurants")]
-        public virtual AcceptedRestaurant AcceptedRestaurant { get; set; }
+        [JsonProperty("acceptedRestaurant")]
+        public AcceptedRestaurant AcceptedRestaurant { get; set; }
     }
 }

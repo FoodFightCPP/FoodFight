@@ -3,25 +3,19 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace FoodFight.Domain.Models
 {
     public class Setting : DomainObject
     {
-        public Setting()
-        {
-            UserSettings = new HashSet<UserSetting>();
-        }
-
-        [Key]
-        [Column("SettingsID")]
+        [JsonProperty("settingsId")]
         public Guid SettingsId { get; set; }
-        [Required]
-        [StringLength(50)]
-        public string Name { get; set; }
-        public bool Enabled { get; set; }
 
-        [InverseProperty(nameof(UserSetting.Settings))]
-        public virtual ICollection<UserSetting> UserSettings { get; set; }
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("enabled")]
+        public bool Enabled { get; set; }
     }
 }

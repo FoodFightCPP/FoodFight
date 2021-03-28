@@ -3,33 +3,25 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace FoodFight.Domain.Models
 {
     public class ConnectedUser : DomainObject
     {
-        /// <summary>
-        /// Many to Many Table for Connected Users
-        /// </summary>
-
-        public ConnectedUser()
-        {
-            MatchSessions = new HashSet<MatchSession>();
-        }
-
-        [Key]
-        [Column("ConnectedUserID")]
+        [JsonProperty("connectedUserId")]
         public Guid ConnectedUserId { get; set; }
-        [Column("BaseUserID")]
+
+        [JsonProperty("baseUserId")]
         public Guid BaseUserId { get; set; }
-        [Column("FriendUserID")]
+
+        [JsonProperty("friendUserId")]
         public Guid FriendUserId { get; set; }
 
+        [JsonProperty("baseUser")]
+        public User BaseUser { get; set; }
 
-        public virtual User BaseUser { get; set; }
-
-        public virtual User FriendUser { get; set; }
-
-        public virtual ICollection<MatchSession> MatchSessions { get; set; }
+        [JsonProperty("friendUser")]
+        public User FriendUser { get; set; }
     }
 }
